@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Asia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.14.7/cdn.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/15.0.4/marked.min.js"></script>
+    <style>
+        /* Add styles for markdown content */
+        .conduct-content {
+            line-height: 1.6;
+        }
+
+        .conduct-content h1,
+        .conduct-content h2,
+        .conduct-content h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .conduct-content p {
+            margin-bottom: 1rem;
+        }
+
+        .conduct-content ul,
+        .conduct-content ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        .conduct-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .conduct-content a {
+            color: var(--python-blue);
+            text-decoration: none;
+        }
+
+        .conduct-content a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <style>
+        :root {
+            --python-blue: #306998;
+            --python-yellow: #FFD43B;
+        }
+
+        .nav-link {
+            color: var(--python-blue) !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--python-yellow) !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            color: var(--python-yellow) !important;
+            font-weight: bold;
+        }
+
+        .card {
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .toggle-button {
+            background-color: var(--python-blue);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-button:hover {
+            background-color: var(--python-yellow);
+            color: var(--python-blue);
+        }
+
+        .conduct-item:hover {
+            background-color: rgba(48, 105, 152, 0.1);
+            border-radius: 4px;
+        }
+
+        .sponsor-footer {
+            background-color: rgba(48, 105, 152, 0.05);
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-brand img {
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body x-data="setupData()">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://pycon.asia/images/logo.png" , alt="Pycon APAC Logo" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <template x-for="section in ['about', 'community', 'sponsors', 'people', 'conduct', 'contact']">
+                        <li class="nav-item">
+                            <a class="nav-link px-3" :class="{ 'active': activeSection === section }" href="#"
+                                @click.prevent="activeSection = section"
+                                x-text="section.charAt(0).toUpperCase() + section.slice(1)"></a>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mt-5 pt-5">
+        <!-- About Section -->
+        <section x-show="activeSection === 'about'" x-cloak>
+            <h2 class="mb-4" x-text="content.about.title"></h2>
+            <p class="lead" x-text="content.about.text"></p>
+        </section>
+
+        <!-- Community Section -->
+        <section x-show="activeSection === 'community'" x-cloak>
+            <h2 class="mb-4">Python Communities in Asia</h2>
+            <div class="row">
+                <template x-for="community in content.community.current">
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title" x-text="community.name"></h5>
+                                <a :href="community.url" class="btn btn-primary" x-text="'Visit Website'"></a>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <button class="toggle-button mt-4" @click="showPastEvents = !showPastEvents">
+                <span x-text="showPastEvents ? 'Hide Past Events' : 'Show Past Events'"></span>
+            </button>
+            <div x-show="showPastEvents" class="mt-4">
+                <h3>Past Events</h3>
+                <div class="row">
+                    <template x-for="event in content.community.past">
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title" x-text="event.name"></h5>
+                                    <p class="card-text" x-text="'Year: ' + event.year"></p>
+                                    <a :href="event.url" class="btn btn-secondary">View Archive</a>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+        <!-- Sponsors Section -->
+        <section x-show="activeSection === 'sponsors'" x-cloak>
+            <h2 class="mb-4">Current Sponsors</h2>
+            <div class="row">
+                <template x-for="sponsor in content.sponsors.current">
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img :src="sponsor.logo" :alt="sponsor.name" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title" x-text="sponsor.name"></h5>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <template x-if="content.sponsors.past.length > 0">
+                <button class="toggle-button mt-4" @click="showPastSponsors = !showPastSponsors">
+                    <span x-text="showPastSponsors ? 'Hide Past Sponsors' : 'Show Past Sponsors'"></span>
+                </button>
+            </template>
+            <div x-show="showPastSponsors" class="mt-4">
+                <h3>Past Sponsors</h3>
+                <div class="row">
+                    <template x-for="sponsor in content.sponsors.past">
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <img :src="sponsor.logo" :alt="sponsor.name" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title" x-text="sponsor.name"></h5>
+                                    <p class="card-text" x-text="'Year: ' + sponsor.year"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <!-- people Section -->
+        <section x-show="activeSection === 'people'" x-cloak>
+            <h2 class="mb-4">Board of Directors</h2>
+            <div class="row">
+                <template x-for="director in content.directors.current">
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title" x-text="director.name"></h5>
+                                <p class="card-text" x-text="director.role"></p>
+                                <p class="card-text"><small class="text-muted" x-text="director.country"></small></p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <template x-if="content.directors.past.length > 0">
+                <button class="toggle-button mt-4" @click="showPastMembers = !showPastMembers">
+                    <span x-text="showPastMembers ? 'Hide Past Members' : 'Show Past Members'"></span>
+                </button>
+            </template>
+            <div x-show="showPastMembers" class="mt-4">
+                <h3>Past Members</h3>
+                <div class="row">
+                    <template x-for="director in content.directors.past">
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title" x-text="director.name"></h5>
+                                    <p class="card-text" x-text="director.role"></p>
+                                    <p class="card-text"><small class="text-muted" x-text="director.country"></small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <!-- Code of Conduct Section -->
+        <section x-show="activeSection === 'conduct'" x-cloak x-init="async function() {
+            if (!content.conduct.content) {
+                try {
+                    const response = await fetch(content.conduct.url);
+                    if (!response.ok) throw new Error('Failed to fetch');
+                    content.conduct.content = await response.text();
+                } catch (error) {
+                    console.error('Error loading Code of Conduct:', error);
+                    content.conduct.content = 'Failed to load Code of Conduct. Please try again later.';
+                }
+            }
+        }">
+            <h2 class="mb-4">Code of Conduct</h2>
+            <div class="card">
+                <div class="card-body conduct-content"
+                    x-html="content.conduct.content ? marked.parse(content.conduct.content) : 'Loading...'">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section x-show="activeSection === 'contact'" x-cloak>
+            <h2 class="mb-4">Contact Us</h2>
+            <div class="card">
+                <div class="card-body">
+                    <p class="lead">Please contact us via email:</p>
+                    <a :href="'mailto:' + content.contact.email" class="btn btn-primary">
+                        <span x-text="content.contact.email"></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    </main>
+
+    <!-- Sponsors Footer -->
+    <footer class="sponsor-footer mt-5" x-show="activeSection !== 'sponsors'">
+        <div class="container">
+            <h4 class="text-center mb-4">Our Sponsors</h4>
+            <div class="row justify-content-center">
+                <template x-for="sponsor in content.sponsors.current">
+                    <div class="col-md-3 col-6 text-center mb-4">
+                        <p class="fw-bold mb-2" x-text="sponsor.name"></p>
+                        <template x-if="sponsor.url">
+                            <a :href="sponsor.url" target="_blank" class="text-decoration-none">
+                                <img :src="sponsor.logo" :alt="sponsor.name" class="img-fluid"
+                                    style="max-height: 60px; transition: transform 0.3s ease;"
+                                    onmouseover="this.style.transform='scale(1.05)'"
+                                    onmouseout="this.style.transform='scale(1)'">
+                            </a>
+                        </template>
+                        <template x-if="!sponsor.url">
+                            <img :src="sponsor.logo" :alt="sponsor.name" class="img-fluid" style="max-height: 60px;">
+                        </template>
+                    </div>
+                </template>
+            </div>
+            <h4 class="text-center mb-4">looking for sponsors!</h4>
+        </div>
+    </footer>
+
+    <!-- Setup Data Function -->
+    <script>
+        function setupData() {
+            return {
+                activeSection: 'about',
+                showPastEvents: false,
+                showPastSponsors: false,
+                showPastMembers: false,
+                content: {
+                    about: {
+                        title: 'About Python Asia',
+                        text: `Python Asia is a community-driven organization that promotes Python programming language across Asia.
+                              We organize conferences, workshops, and other events to foster the growth of Python communities in the region.`
+                    },
+                    community: {
+                        current: [
+                            { name: 'PyCon APAC', url: 'https://pycon.asia' },
+                            { name: 'PyCon Korea', url: 'https://pycon.kr' },
+                            { name: 'PyCon Japan', url: 'https://pycon.jp' }
+                        ],
+                        past: [
+                            { year: '2023', name: 'PyCon APAC 2023', url: 'https://2023.pycon.asia' },
+                            { year: '2022', name: 'PyCon APAC 2022', url: 'https://2022.pycon.asia' }
+                        ]
+                    },
+                    sponsors: {
+                        current: [
+                            {
+                                name: 'Sponsor 1',
+                                logo: 'logo 1',
+                                url: '',
+                            },
+                            {
+                                name: 'sponsor 2',
+                                logo: 'logo 2',
+                                url: '',
+                            }
+                        ],
+                        past: [
+                            { year: '2023', name: 'Example Corp', logo: '/api/placeholder/200/100' }
+                        ]
+                    },
+                    directors: {
+                        current: [
+                            { name: 'Jane Doe', role: 'Chair', country: 'Singapore' },
+                            { name: 'John Smith', role: 'Vice Chair', country: 'Korea' }
+                        ],
+                        past: [
+                            { name: 'Alice Johnson', role: 'Chair 2022-2023', country: 'Japan' }
+                        ]
+                    },
+                    conduct: {
+                        url: "https://raw.githubusercontent.com/PythonAsiaOrganization/public-docs/refs/heads/main/CODE_OF_CONDUCT.md",
+                        content: null,
+                    },
+                    contact: {
+                        email: 'contact@pythonasia.org'
+                    }
+                }
+            };
+        }
+    </script>
+</body>
+
+</html>
