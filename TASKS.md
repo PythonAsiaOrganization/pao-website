@@ -34,7 +34,7 @@ docker start containerid
 
 ## access admin pages
 
-<http://localhost:8090/\_/>
+<http://localhost:8090/_/>
 
 - username : test@example.com
 - password : 1234567890
