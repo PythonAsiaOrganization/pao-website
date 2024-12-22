@@ -26,6 +26,15 @@ docker run  \
 docker start containerid
 ```
 
+## stop container
+
+```bash
+
+```
+
 ## access admin pages
 
 <http://localhost:8090/\_/>
+
+- username : test@example.com
+- password : 1234567890
