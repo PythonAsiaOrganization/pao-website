@@ -1,0 +1,468 @@
+/* 
+==================================
+PYTHON ASIA ORGANIZATION CSS GUIDE
+==================================
+This CSS follows the brand guide specifications from the Figma design
+*/
+
+/* 
+----------------------------------
+TYPOGRAPHY
+----------------------------------
+*/
+
+/* Font imports - Raleway for headings, Open Sans for body */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&family=Open+Sans:wght@400;600;700&family=Source+Sans+Pro:wght@400&display=swap');
+
+:root {
+  /* Colors - Primary */
+  --color-navy: #223843;
+  --color-blue: #4C52C7;
+  --color-yellow: #FAD02E;
+  
+  /* Colors - Secondary */
+  --color-cream-light: #FEF6D7;
+  --color-cream: #FEF1BE;
+  
+  /* Colors - Tertiary */
+  --color-red: #FE4A49;
+  --color-green: #45ED74;
+  --color-light-blue: #47B2F5;
+  
+  /* Colors - Greys */
+  --color-dark-grey: #2A3151;
+  --color-medium-grey: #9A9184;
+  --color-light-grey: #D4D3D2;
+  --color-lighter-grey: #CCCCCC;
+  
+  /* Text colors */
+  --text-dark: #000000;
+  --text-muted: #525252;
+  
+  /* Font families */
+  --font-heading: 'Raleway', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+  --font-accent: 'Source Sans Pro', sans-serif;
+  
+  /* Line heights */
+  --line-height-heading: 1.174;
+  --line-height-body: 1.406;
+  --line-height-button: 1.362;
+  
+  /* Font sizes */
+  --font-size-h1: 64px;
+  --font-size-h2: 48px;
+  --font-size-h3: 36px;
+  --font-size-subtitle: 24px;
+  --font-size-body-big: 20px;
+  --font-size-body: 16px;
+  --font-size-small: 12px;
+  --font-size-xs: 10px;
+}
+
+/* Typography - Headers */
+.pao-h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-heading);
+  color: var(--text-dark);
+  text-transform: capitalize;
+}
+
+.pao-h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-heading);
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.pao-h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-heading);
+  color: var(--text-dark);
+}
+
+/* Typography - Body Text */
+.pao-subtitle {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--font-size-subtitle);
+  line-height: var(--line-height-body);
+  color: var(--color-navy);
+}
+
+.pao-body-big {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--font-size-body-big);
+  line-height: var(--line-height-body);
+  color: var(--color-navy);
+}
+
+.pao-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--color-navy);
+}
+
+.pao-body-small {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-body);
+  color: var(--color-navy);
+}
+
+.pao-body-xs {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-body);
+  color: var(--color-navy);
+}
+
+/* Typography - Buttons and Links */
+.pao-button-text {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-body-big);
+  line-height: var(--line-height-button);
+  text-transform: capitalize;
+}
+
+.pao-nav-link {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-button);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+}
+
+/* Typography - Brand Title */
+.pao-brand-title {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 1.257;
+  letter-spacing: 25%;
+  color: var(--color-dark-grey);
+}
+
+/* 
+----------------------------------
+COLOR UTILITIES
+----------------------------------
+*/
+
+/* Background Colors - Primary */
+.pao-bg-navy {
+  background-color: var(--color-navy);
+}
+
+.pao-bg-blue {
+  background-color: var(--color-blue);
+}
+
+.pao-bg-yellow {
+  background-color: var(--color-yellow);
+}
+
+/* Background Colors - Secondary */
+.pao-bg-cream-light {
+  background-color: var(--color-cream-light);
+}
+
+.pao-bg-cream {
+  background-color: var(--color-cream);
+}
+
+/* Background Colors - Tertiary */
+.pao-bg-red {
+  background-color: var(--color-red);
+}
+
+.pao-bg-green {
+  background-color: var(--color-green);
+}
+
+.pao-bg-light-blue {
+  background-color: var(--color-light-blue);
+}
+
+/* Background Colors - Greys */
+.pao-bg-dark-grey {
+  background-color: var(--color-dark-grey);
+}
+
+.pao-bg-medium-grey {
+  background-color: var(--color-medium-grey);
+}
+
+.pao-bg-light-grey {
+  background-color: var(--color-light-grey);
+}
+
+.pao-bg-lighter-grey {
+  background-color: var(--color-lighter-grey);
+}
+
+/* Text Colors */
+.pao-text-navy {
+  color: var(--color-navy);
+}
+
+.pao-text-blue {
+  color: var(--color-blue);
+}
+
+.pao-text-yellow {
+  color: var(--color-yellow);
+}
+
+.pao-text-red {
+  color: var(--color-red);
+}
+
+.pao-text-green {
+  color: var(--color-green);
+}
+
+.pao-text-light-blue {
+  color: var(--color-light-blue);
+}
+
+.pao-text-dark-grey {
+  color: var(--color-dark-grey);
+}
+
+.pao-text-medium-grey {
+  color: var(--color-medium-grey);
+}
+
+.pao-text-light-grey {
+  color: var(--color-light-grey);
+}
+
+.pao-text-dark {
+  color: var(--text-dark);
+}
+
+.pao-text-muted {
+  color: var(--text-muted);
+}
+
+/* 
+----------------------------------
+COMPONENTS
+----------------------------------
+*/
+
+/* Buttons */
+.pao-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pao-button-primary {
+  background-color: var(--color-blue);
+  color: white;
+}
+
+.pao-button-primary:hover {
+  background-color: #3a40a0;
+  color: white;
+}
+
+.pao-button-secondary {
+  background-color: transparent;
+  border-color: var(--color-blue);
+  color: var(--color-blue);
+}
+
+.pao-button-secondary:hover {
+  background-color: var(--color-blue);
+  color: white;
+}
+
+/* Cards */
+.pao-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+/* Section Backgrounds */
+.pao-section-primary {
+  background-color: var(--color-cream-light);
+  padding: 64px 0;
+}
+
+.pao-section-secondary {
+  background-color: white;
+  padding: 64px 0;
+}
+
+.pao-section-accent {
+  background-color: var(--color-navy);
+  color: white;
+  padding: 64px 0;
+}
+
+/* Navigation */
+.navbar {
+  background-color: var(--color-cream-light);
+  padding: 0px 0;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: var(--color-navy);
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: var(--color-blue);
+}
+
+/* Footer */
+footer {
+  flex-shrink: 0;
+  background-color: var(--color-cream-light);
+  padding: 20px 0;
+  margin-top: auto;
+  width: 100%;
+}
+
+/* 
+----------------------------------
+UTILITIES
+----------------------------------
+*/
+
+/* Containers */
+.pao-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  :root {
+    --font-size-h1: 48px;
+    --font-size-h2: 36px;
+    --font-size-h3: 28px;
+    --font-size-subtitle: 20px;
+    --font-size-body-big: 18px;
+  }
+  
+  .pao-button {
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-h1: 36px;
+    --font-size-h2: 28px;
+    --font-size-h3: 22px;
+    --font-size-subtitle: 18px;
+    --font-size-body-big: 16px;
+  }
+  
+  .pao-container {
+    padding: 0 16px;
+  }
+}
+
+/* General Styles */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  color: var(--color-navy);
+  background-color: var(--color-cream-light);
+  line-height: var(--line-height-body);
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* Content Sections */
+.content h2, .content h3 {
+  color: var(--color-red);
+  font-family: var(--font-heading);
+}
+
+.content p {
+  font-family: var(--font-body);
+  color: var(--color-navy);
+}
+
+.content a {
+  color: var(--color-blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.content a:hover {
+  color: var(--color-red);
+}
+
+/* Sponsor Section */
+.blue-section {
+  background-color: var(--color-blue);
+  color: white;
+  padding: 64px 0;
+}
+
+.blue-section h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background-color: white;
+  color: var(--color-blue);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 24px;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--color-yellow);
+  color: var(--color-navy);
+}
+
+.sponsor-title h1 {
+  color: var(--color-red);
+}
