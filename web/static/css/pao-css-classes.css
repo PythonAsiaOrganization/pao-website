@@ -147,6 +147,18 @@ TYPOGRAPHY
   color: var(--color-navy);
 }
 
+.pao-link-plain {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pao-link-plain:hover,
+.pao-link-plain:focus,
+.pao-link-plain:active {
+  color: inherit;
+  text-decoration: none;
+}
+
 /* Typography - Brand Title */
 .pao-brand-title {
   font-family: var(--font-accent);
