@@ -932,8 +932,10 @@ main {
 }
 
 .sponsor-logo {
-    width: 300px;
-    height: 300px;
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -942,6 +944,14 @@ main {
     font-size: 1.5rem;
     font-weight: bold;
     color: #6c757d;
+}
+
+.sponsor-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
 }
 
 /* Sponsor Card - Based on Figma Design */
@@ -990,33 +1000,15 @@ main {
   width: 100%;
 }
 
-/* Sponsors Container - Horizontal Scroll */
+/* Sponsors Container - Responsive Wrap */
 .pao-sponsors-row {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   gap: 40px;
-  overflow-x: auto;
   padding: 20px 0;
   justify-content: center;
-}
-
-.pao-sponsors-row::-webkit-scrollbar {
-  height: 8px;
-}
-
-.pao-sponsors-row::-webkit-scrollbar-track {
-  background: var(--color-cream-light);
-  border-radius: 4px;
-}
-
-.pao-sponsors-row::-webkit-scrollbar-thumb {
-  background: var(--color-navy);
-  border-radius: 4px;
-}
-
-.pao-sponsors-row::-webkit-scrollbar-thumb:hover {
-  background: var(--color-blue);
 }
 
 /* GitHub Sponsors Container Card */
