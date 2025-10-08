@@ -1084,3 +1084,19 @@ main {
   color: #000000;
   word-break: break-word;
 }
+
+/*
+----------------------------------
+FOOTER STYLES
+----------------------------------
+*/
+
+.pao-footer {
+  background-color: var(--color-navy);
+  padding: 40px 0;
+  margin-top: 0;
+}
+
+.pao-footer .navbar-brand {
+  display: inline-block;
+}
