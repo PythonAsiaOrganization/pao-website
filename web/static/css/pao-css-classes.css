@@ -567,14 +567,14 @@ BLOG COMPONENTS
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  height: 487px;
+  height: 567px;
   width: 360px;
   display: flex;
   flex-direction: column;
 }
 
 .pao-blog-card-image {
-  height: 240px;
+  height: 320px;
   background-color: var(--color-blue);
   display: flex;
   align-items: center;
@@ -593,8 +593,8 @@ BLOG COMPONENTS
 /* Default logo styling - smaller size */
 .default-logo {
   object-fit: contain !important;
-  max-width: 60%;
-  max-height: 60%;
+  max-width: 80%;
+  max-height: 80%;
 }
 
 /* Responsive adjustments */
@@ -606,7 +606,7 @@ BLOG COMPONENTS
   }
 
   .pao-blog-card-image {
-    height: 200px;
+    height: 260px;
   }
 
   .pao-blog-hero-card {
@@ -626,7 +626,7 @@ BLOG COMPONENTS
   }
 
   .pao-blog-card-image {
-    height: 180px;
+    height: 230px;
   }
 
   .pao-blog-hero-card {
@@ -639,10 +639,10 @@ BLOG COMPONENTS
 }
 
 .pao-blog-card-content {
-  padding: 36px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 8px;
   flex: 1;
 }
 
@@ -665,10 +665,25 @@ BLOG COMPONENTS
 
 .pao-blog-excerpt {
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1.25;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
   color: white;
+}
+
+.pao-blog-card .pao-blog-author {
+  font-size: 12px;
+  margin: 0;
+}
+
+.pao-blog-card .pao-blog-title {
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.pao-blog-card .pao-blog-excerpt {
+  margin: 0;
 }
 
 /* Blog Read More Button */
@@ -1099,4 +1114,198 @@ FOOTER STYLES
 
 .pao-footer .navbar-brand {
   display: inline-block;
+}
+
+/*
+----------------------------------
+JOB BOARD STYLES
+----------------------------------
+*/
+
+/* Job Board Section */
+.pao-job-board-section {
+  background-color: var(--color-cream-light);
+  min-height: 100vh;
+}
+
+/* Job Grid - 2 column layout */
+.pao-job-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .pao-job-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Job Card */
+.pao-job-card {
+  display: block;
+  padding: 24px 24px 24px 0;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-light-grey);
+}
+
+.pao-job-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.pao-job-company {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.25;
+  color: var(--color-navy);
+  margin: 0;
+}
+
+.pao-job-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.25;
+  color: var(--color-red);
+  text-decoration: underline;
+  margin: 0;
+}
+
+.pao-job-meta {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.25;
+  color: var(--color-navy);
+  margin-top: 5px;
+}
+
+/* Job Detail Page */
+.pao-job-detail-section {
+  background-color: var(--color-cream-light);
+  min-height: 100vh;
+}
+
+.pao-job-detail-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.pao-job-detail-header {
+  border-bottom: 1px solid var(--color-light-grey);
+  padding-bottom: 24px;
+}
+
+.pao-job-detail-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.25;
+  color: var(--color-red);
+  margin-bottom: 5px;
+}
+
+.pao-job-detail-company {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.25;
+  color: var(--color-navy);
+  margin-bottom: 0;
+}
+
+.pao-job-detail-meta {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.25;
+  color: var(--color-navy);
+}
+
+.pao-job-detail-content {
+  font-family: var(--font-body);
+  font-size: 20px;
+  line-height: 1.25;
+  color: var(--color-navy);
+  padding-top: 15px;
+}
+
+.pao-job-detail-content h2,
+.pao-job-detail-content h3 {
+  font-family: var(--font-heading);
+  color: var(--color-navy);
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+.pao-job-detail-content ul,
+.pao-job-detail-content ol {
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+
+.pao-job-detail-content li {
+  margin-bottom: 8px;
+}
+
+/* Apply Button - Red background per Figma */
+.pao-job-apply-button {
+  display: inline-block;
+  background-color: var(--color-red);
+  color: #F2F2F2;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 20px;
+  padding: 10px 40px;
+  border-radius: 8px;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+}
+
+.pao-job-apply-button:hover {
+  background-color: #e54342;
+  color: #F2F2F2;
+  transform: translateY(-2px);
+}
+
+/* Empty state */
+.pao-job-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+/* Back link */
+.pao-job-back-link a {
+  color: var(--color-blue);
+  text-decoration: none;
+}
+
+.pao-job-back-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pao-job-detail-title {
+    font-size: 36px;
+  }
+
+  .pao-job-detail-company {
+    font-size: 24px;
+  }
+
+  .pao-job-company {
+    font-size: 24px;
+  }
+
+  .pao-job-title {
+    font-size: 20px;
+  }
 }
