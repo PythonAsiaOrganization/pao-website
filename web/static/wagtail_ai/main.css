@@ -1,14 +1,4 @@
-.wagtailai-input-wrapper {
-  display: flex;
-  align-items: stretch;
-  gap: 0.3125rem;
-}
-
-.wagtailai-button > svg {
-  fill: white;
-}
-
-@keyframes wagtailai-button-twinkle {
+@keyframes wai-button-twinkle {
   0% {
     opacity: 1;
   }
@@ -19,7 +9,7 @@
     opacity: 1;
   }
 }
-@keyframes wagtailai-button-dazzle {
+@keyframes wai-button-dazzle {
   0% {
     fill: hsl(0, 80%, 80%);
   } /* Red */
@@ -60,7 +50,7 @@
     fill: hsl(360, 80%, 70%);
   } /* Back to Red */
 }
-@keyframes wagtailai-button-hover {
+@keyframes wai-button-hover {
   0% {
     transform: translateY(0px);
   }
@@ -72,31 +62,35 @@
   }
 }
 
-.wagtailai-button.loading svg {
+use[href='#icon-wand-animated'] {
   opacity: 0.9;
 }
-.wagtailai-button.loading #wand {
+
+#wai-wand-stick {
   transform-origin: center;
-  animation: wagtailai-button-dazzle 2.4s ease infinite;
+  animation: wai-button-dazzle 2.4s ease infinite;
 }
-.wagtailai-button.loading #star1 {
-  animation: wagtailai-button-hover 1.2s ease infinite,
-    wagtailai-button-twinkle 1.2s ease infinite,
-    wagtailai-button-dazzle 2.4s ease infinite;
+#wai-wand-star1 {
+  animation:
+    wai-button-hover 1.2s ease infinite,
+    wai-button-twinkle 1.2s ease infinite,
+    wai-button-dazzle 2.4s ease infinite;
   transform-origin: center;
   animation-delay: 0.2s, 0s;
 }
-.wagtailai-button.loading #star2 {
-  animation: wagtailai-button-hover 1.2s ease infinite,
-    wagtailai-button-twinkle 1.2s ease infinite,
-    wagtailai-button-dazzle 2.4s ease infinite;
+#wai-wand-star2 {
+  animation:
+    wai-button-hover 1.2s ease infinite,
+    wai-button-twinkle 1.2s ease infinite,
+    wai-button-dazzle 2.4s ease infinite;
   transform-origin: center;
   animation-delay: 0.1s, 0s;
 }
-.wagtailai-button.loading #star3 {
-  animation: wagtailai-button-hover 1.2s ease infinite,
-    wagtailai-button-twinkle 1.2s ease infinite,
-    wagtailai-button-dazzle 2.4s ease infinite;
+#wai-wand-star3 {
+  animation:
+    wai-button-hover 1.2s ease infinite,
+    wai-button-twinkle 1.2s ease infinite,
+    wai-button-dazzle 2.4s ease infinite;
   transform-origin: center;
 }
 
