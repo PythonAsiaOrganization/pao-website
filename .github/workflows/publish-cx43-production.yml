@@ -1,6 +1,8 @@
 name: PAO - Publish static HTML to production
 
-run-name: "Static HTML: publish pythonasia.org from cx43 by @${{ github.actor }}"
+run-name: >-
+  Static HTML: publish pythonasia.org from cx43 by @${{ github.actor }}
+  (${{ inputs.request_id || 'direct' }})
 
 on:
   workflow_dispatch:
@@ -8,6 +10,10 @@ on:
       confirm:
         description: Type "publish static html pythonasia.org"
         required: true
+        type: string
+      request_id:
+        description: Optional caller identifier used to correlate delegated runs
+        required: false
         type: string
 
 concurrency:
