@@ -91,6 +91,11 @@ jobs:
           cmp -s "$RUNNER_TEMP/expected-robots.txt" site/robots.txt
           test ! -e site/CNAME
           test "$(find site -name '*.html' -type f -size 0 | wc -l)" -eq 0
+          if grep -RIEql --include='*.html' \
+            '(<title>Server Error \(500\)</title>|<h1>Server Error \(500\)</h1>)' site; then
+            echo "Django 500 response found in static HTML" >&2
+            exit 1
+          fi
           python - https://pythonasia.org site/sitemap.xml <<'PY'
           import sys
           from urllib.parse import urlsplit
