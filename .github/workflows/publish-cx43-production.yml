@@ -24,8 +24,6 @@ jobs:
   build_and_publish_static_html:
     if: >-
       github.ref == 'refs/heads/main' &&
-      github.actor == 'darjeeling' &&
-      github.triggering_actor == 'darjeeling' &&
       inputs.confirm == 'publish static html pythonasia.org'
     runs-on: ubuntu-latest
     timeout-minutes: 45
